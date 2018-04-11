@@ -3,6 +3,7 @@ package org.shaw.myhadoop;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.DoubleWritable;
+import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
@@ -18,24 +19,29 @@ import java.io.IOException;
  */
 public class Sum {
 
-    public static class SumMapper extends Mapper<LongWritable, Text, Text, DoubleWritable> {
+    public static class SumMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
 
         // map method
         @Override
         public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
-
             //pass data to reducer
+            String[] line = value.toString().trim().split("\t");
+            context.write(new Text(line[0]), new IntWritable(Integer.parseInt(line[1])));
         }
     }
 
-    public static class SumReducer extends Reducer<Text, DoubleWritable, Text, DoubleWritable> {
+    public static class SumReducer extends Reducer<Text, DoubleWritable, Text, IntWritable> {
         // reduce method
         @Override
-        public void reduce(Text key, Iterable<DoubleWritable> values, Context context)
+        public void reduce(Text key, Iterable<IntWritable> values, Context context)
                 throws IOException, InterruptedException {
-
             //user:movie relation
             //calculate the sum
+            int sum = 0;
+            for (IntWritable value : values) {
+                sum += value.get();
+            }
+            context.write(key, new IntWritable(sum));
         }
     }
 
