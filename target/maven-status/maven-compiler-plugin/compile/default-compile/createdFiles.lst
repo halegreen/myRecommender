@@ -1,0 +1,17 @@
+org/shaw/myhadoop/Multiplication.class
+org/shaw/myhadoop/Normalize$NormalizeReducer.class
+org/shaw/myhadoop/CoOccurrenceMatrixGenerator$MatrixGeneratorReducer.class
+org/shaw/myhadoop/CoOccurrenceMatrixGenerator.class
+org/shaw/myhadoop/CoOccurrenceMatrixGenerator$MatrixGeneratorMapper.class
+org/shaw/myhadoop/Normalize$NormalizeMapper.class
+org/shaw/myhadoop/DataDividerByUser$DataDividerReducer.class
+org/shaw/myhadoop/Sum$SumMapper.class
+org/shaw/myhadoop/Sum$SumReducer.class
+org/shaw/myhadoop/Multiplication$MultiplicationReducer.class
+org/shaw/myhadoop/Normalize.class
+org/shaw/myhadoop/Driver.class
+org/shaw/myhadoop/Multiplication$CooccurrenceMapper.class
+org/shaw/myhadoop/DataDividerByUser.class
+org/shaw/myhadoop/Multiplication$RatingMapper.class
+org/shaw/myhadoop/DataDividerByUser$DataDividerMapper.class
+org/shaw/myhadoop/Sum.class
