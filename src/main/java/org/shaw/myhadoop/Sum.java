@@ -30,7 +30,7 @@ public class Sum {
         }
     }
 
-    public static class SumReducer extends Reducer<Text, DoubleWritable, Text, IntWritable> {
+    public static class SumReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
         // reduce method
         @Override
         public void reduce(Text key, Iterable<IntWritable> values, Context context)
