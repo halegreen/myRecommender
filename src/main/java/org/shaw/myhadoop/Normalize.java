@@ -47,7 +47,7 @@ public class Normalize {
             }
             for (Map.Entry<String, Integer> entry : map.entrySet()) {
                 context.write(key,
-                        new Text(entry.getKey() + ":" + entry.getValue().toString()));
+                        new Text(entry.getKey() + "=" + entry.getValue().toString()));
             }
         }
     }
